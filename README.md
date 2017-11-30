@@ -10,9 +10,10 @@
  1. Install Docker if you haven't
  2. Make sure you're in the project root, then execute the script below in terminal. Automatically create docker image and get into the container
     - `$ ./scripts/create-ruby-env.sh`
+
 ### 3. After Running the script, make sure you're in the docker container, then execute the script below in the container
-    - `bash-4.2# cp -rp * .[^\.]* /app`
-    - `bash-4.2# exit`
+* `bash-4.2# cp -rp * .[^\.]* /app`
+* `bash-4.2# exit`
 
 ### 4. Modify parameters.json and schedule-expression files in parameters directory
 
@@ -43,17 +44,19 @@ Specify a Schedule Expression for CloudWatch Event to invoke the Lambda function
 
 ## Libraries
 This depends on the following libraries.Thanks :)
-* JavaScript
+### JavaScript
  - [aws/aws-sdk-js](https://github.com/aws/aws-sdk-js)
    * [Apache License 2.0](https://github.com/aws/aws-sdk-js/blob/master/LICENSE.txt)
-* Ruby
+
+### Ruby
  - [phusion/traveling-ruby](https://github.com/phusion/traveling-ruby)
    * [MIT License](https://github.com/phusion/traveling-ruby/blob/master/LICENSE.md)
  - [fastlane/fastlane/spaceship](https://github.com/fastlane/fastlane/tree/master/spaceship)
    * [MIT License](https://github.com/fastlane/fastlane/blob/master/LICENSE)
  - [shoyan/slack-incoming-webhooks](https://github.com/shoyan/slack-incoming-webhooks)
    * [MIT License](https://github.com/shoyan/slack-incoming-webhooks/blob/master/LICENSE.txt)
-* Deploy
+
+### Deploy
  - [aws/aws-cli](https://github.com/aws/aws-cli)
    * [Apache License 2.0](https://github.com/aws/aws-cli/blob/develop/LICENSE.txt)
 
