@@ -30,7 +30,7 @@ WARNINGDAY|`"60"`| If an expiration day is less than the day, the Slack attachme
 DANGERDAY|`"30"`| If an expiration day is less than the day, the Slack attachment color will be red
 
 #### schedule-expression
-Specify a Schedule Expression for CloudWatch Event to invoke the Lambda function on a regular schedule. Please specify like `ScheduleExpression: <Rate or Cron expression>` as written in line 5. For more information on Scheduled Expressions, see AWS official Document, [Schedule Expressions Using Rate or Cron](http://docs.aws.amazon.com/ja_jp/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html).
+Specify a Schedule Expression for CloudWatch Event to invoke the Lambda function on a regular schedule. Please specify like `ScheduleExpression: <Rate or Cron expression>` as written in line 5. For more information on Schedule Expressions, see AWS official Document, [Schedule Expressions Using Rate or Cron](http://docs.aws.amazon.com/ja_jp/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html).
 
 ### 5. Make sure you're in the project root, then execute the script below in terminal. Automatically create CloudFormation stacks and deploy Lambda in your AWS Account!
 - `$ ./scripts/setup.sh`
