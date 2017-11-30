@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Parameters:
+  CHANNEL:
+    Description: Slack Channel Name (e.g. '#genaral')
+    Type: String
+  USERNAME:
+    Description: Name of this Bot (displayed in Slack)
+    Type: String
+  ICON:
+    Description: Icon of this Bot (displayed in Slack)
+    Type: String
+  WARNINGDAY:
+    Description: If an expiration day is less than the day, the Slack attachment color will be orange
+    Type: String
+  DANGERDAY:
+    Description: If an expiration day is less than the day, the Slack attachment color will be red
+    Type: String
+  KmsKeyArn:
+    Description: Arn of KMS Key for environment variable decryption
+    Type: String
+  LambdaRoleArn:
+    Description: Arn of IAM Role for Lambda
+    Type: String
+
+Resources:
+  iOSCerProfileExpirationDateCheck:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs6.10
+      CodeUri: ios-cer-profile-expiration-checker.zip
+      Role: !Ref LambdaRoleArn
+      MemorySize: 128
+      Timeout: 25
+      Events:
+        ScheduledEvent:
+          Type: Schedule
+          Properties:
+            Schedule: ###ScheduleExpression###
+      KmsKeyArn: !Ref KmsKeyArn
+      Environment:
+        Variables:
+          ID: ###AppleID###
+          PASS: ###Password###
+          WEBHOOKURL: ###WebhookURL###
+          CHANNEL: !Ref CHANNEL
+          USERNAME: !Ref USERNAME
+          ICON: !Ref ICON
+          WARNINGDAY: !Ref WARNINGDAY
+          DANGERDAY: !Ref DANGERDAY

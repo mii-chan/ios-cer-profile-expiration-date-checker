@@ -1,0 +1,5 @@
+# Please Write a Schedule Expression below
+# Schedule Expression has to follow the following rules
+# http://docs.aws.amazon.com/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html
+
+ScheduleExpression: cron(0 1 1 * ? *)

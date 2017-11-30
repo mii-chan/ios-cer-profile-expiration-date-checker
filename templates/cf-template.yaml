@@ -1,0 +1,56 @@
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties: {}
+  KMS:
+    Type: 'AWS::KMS::Key'
+    Properties:
+      Description: 'Custom Key for iOSCerProfileExpirationDateCheck Lambda'
+      KeyPolicy:
+        Version: 2012-10-17
+        Statement:
+          - Sid: 'Enable IAM User Permissions'
+            Effect: 'Allow'
+            Principal:
+              AWS: !Join 
+                - ''
+                - - 'arn:aws:iam::'
+                  - !Ref 'AWS::AccountId'
+                  - ':root'
+            Action: 'kms:*'
+            Resource: '*'
+  LambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service:
+            - lambda.amazonaws.com
+          Action:
+          - sts:AssumeRole
+      Path: '/'
+      Policies:
+      - PolicyName: 'AWSLambdaKMSDecryptionRole'
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Effect: Allow
+            Action:
+              - 'logs:CreateLogGroup'
+              - 'logs:CreateLogStream'
+              - 'logs:PutLogEvents'
+            Resource: arn:aws:logs:*:*:*
+          - Effect: Allow
+            Action:
+              - 'kms:Decrypt'
+            Resource: !GetAtt KMS.Arn
+Outputs:
+  S3BucketName:
+    Value: !Ref 'S3Bucket'
+  KmsKeyArn:
+    Value: !GetAtt KMS.Arn
+  LambdaRoleArn:
+    Value: !GetAtt LambdaRole.Arn

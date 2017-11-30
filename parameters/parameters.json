@@ -1,0 +1,30 @@
+[
+  {
+    "ParameterKey": "StackName",
+    "ParameterValue": "iOS-cer-profile-expiration-date-check"
+  },
+  {
+    "ParameterKey": "StackNameLambda",
+    "ParameterValue": "iOS-cer-profile-expiration-date-check-lambda"
+  },
+  {
+    "ParameterKey": "CHANNEL",
+    "ParameterValue": "<slack channel e.g. #general>"
+  },
+  {
+    "ParameterKey": "USERNAME",
+    "ParameterValue": "iOS-Monthly-Bot"
+  },
+  {
+    "ParameterKey": "ICON",
+    "ParameterValue": ":iphone:"
+  },
+  {
+    "ParameterKey": "WARNINGDAY",
+    "ParameterValue": "60"
+  },
+  {
+    "ParameterKey": "DANGERDAY",
+    "ParameterValue": "30"
+  }
+]
