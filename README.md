@@ -1,6 +1,8 @@
 # iOS certificates and provisioning profiles expiration dates checker
 `ios-cer-profile-expiration-date-checker` is a tool for checking the expiration dates of iOS certificates and provisioning profiles and post the days left to Slack, by using AWS Lambda and fastlane/spaceship.
 
+[Qiita article (in Japanese)](https://qiita.com/mii-chan/items/3a9d9f45b2c370372d45)
+
 ## How to use
 ### 1. Set up the environment to execute AWS CLI command
  1. Install AWS CLI if you haven't
