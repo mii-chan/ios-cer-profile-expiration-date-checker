@@ -8,10 +8,10 @@ TEMPLATES_PATH="$ROOT_PATH/templates"
 docker build -t mii-chan/lambda-ruby-env:1.0 "${TEMPLATES_PATH}"
 
 # Run it
-docker run --rm -it -v "$(pwd)/ruby-env":/app mii-chan/lambda-ruby-env:1.0
+docker run --rm -it -v "$(pwd)/ruby-env":/app mii-chan/lambda-ruby-env:1.0 /bin/bash
 
 # After getting into the container, execute the following commands
-# bash-4.2# cp -rp * .[^\.]* /app
+# bash-4.2# cp -a . /app
 # bash-4.2# exit
 
 # Now, Ruby Execution Environment is ready under `ruby-env` directory

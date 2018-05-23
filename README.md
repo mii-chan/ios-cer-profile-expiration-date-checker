@@ -14,7 +14,7 @@
     - `$ ./scripts/create-ruby-env.sh`
 
 ### 3. After Running the script, make sure you're in the docker container, then execute the script below in the container
-* `bash-4.2# cp -rp * .[^\.]* /app`
+* `bash-4.2# cp -a . /app`
 * `bash-4.2# exit`
 
 ### 4. Modify parameters.json and schedule-expression files in parameters directory
